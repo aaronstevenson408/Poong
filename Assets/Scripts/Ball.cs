@@ -11,8 +11,17 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
+        InitialPush();
+    }
+    private void InitialPush()
+    {
         Vector2 dir = Vector2.left;
-        dir.y = Random.Range(-maxInitialAngle, maxInitialAngle);    
+        dir.y = Random.Range(-maxInitialAngle, maxInitialAngle);
         rb2d.velocity = dir * moveSpeed;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("hit score zone");
+
     }
 }
