@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3748334778064148379}
   - component: {fileID: 6246662585195688636}
+  - component: {fileID: -1817398924145507279}
   m_Layer: 0
   m_Name: ScoreZone
   m_TagString: Untagged
@@ -58,3 +59,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1817398924145507279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106638947314152913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e308dc368a781a448fdb1fd6e065f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
