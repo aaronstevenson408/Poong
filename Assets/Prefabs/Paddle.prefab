@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 1451576097949152964}
   id: 0
-  moveSpeed: 2
+  moveSpeed: 8
