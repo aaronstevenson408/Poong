@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public GameManager gameManager;
     public Rigidbody2D rb2d;
     public float maxInitialAngle = 0.66f;
     public float moveSpeed = 1.0f;
     public float maxYStart = 3.5f;
     public float startX = 0;
+    public float speedMultiplier = 1.1f;
+
 
 
     void Start()
     {
         InitialPush();
+        GameManager.instance.onReset += ResetBall;
+
     }
-    private void ResetBall()
+    private void ResetBallPosition()
     {
         float posY = Random.Range( -maxYStart, maxYStart );
         Vector2 position = new Vector2(startX, posY);
@@ -29,13 +32,27 @@ public class Ball : MonoBehaviour
         dir.y = Random.Range(-maxInitialAngle, maxInitialAngle);
         rb2d.velocity = dir * moveSpeed;
     }
+    private void ResetBall()
+    {
+        ResetBallPosition();
+        InitialPush();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ScoreZone scoreZone = collision.GetComponent<ScoreZone>();  
         if (scoreZone) {
-            gameManager.OnScoreZoneReached(scoreZone.id);
+            GameManager.instance.OnScoreZoneReached(scoreZone.id);
             ResetBall();
             InitialPush();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Paddle paddle = collision.collider.GetComponent<Paddle>();
+        if (paddle)
+        {
+            rb2d.velocity *= speedMultiplier;
+
         }
     }
 }
