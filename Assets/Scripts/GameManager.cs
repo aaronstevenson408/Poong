@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
         {
             scorePlayer2++;
         }
-        UpdateScores(); 
+        UpdateScores();
+        HighlightScore(id);
     }
     private void UpdateScores()
     {
@@ -43,4 +44,17 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void HighlightScore (int id)
+    {
+        switch (id)
+        {
+            case 1:
+                scoreTextLeft.Highlight();
+                break;
+            case 2: 
+                scoreTextRight.Highlight();
+                break;
+                
+        }
+    }
 }
